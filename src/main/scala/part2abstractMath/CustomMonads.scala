@@ -73,7 +73,6 @@ object CustomMonads {
             tr([1], [1, 2, 3], [B12, B34]) =
             tr([], [1, 2, 3], [B1234]) =
             B1234f
-
        */
 
       def tailRec(todo: List[Tree[Either[A, B]]], expanded: Set[Tree[Either[A, B]]], done: List[Tree[B]]): Tree[B] = {
