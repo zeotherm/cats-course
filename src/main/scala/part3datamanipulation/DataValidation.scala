@@ -80,7 +80,7 @@ object DataValidation {
       .combine(Validated.cond(primesUnder100.contains(n), n, List("Number must be prime")))
 
   // chain
-  aValidValue.andThen(_ => anInvalidValue)
+  val q = aValidValue.andThen(_ => anInvalidValue)
   // test a valid value with ensure
   aValidValue.ensure(List("Something went wrong"))(_%2 == 0)
   // transform
@@ -147,6 +147,7 @@ object DataValidation {
   val anError: Validated[String, Int] = "Something ent wrong".invalid[Int]
 
   def main(args: Array[String]): Unit = {
+    println(q)
     val formInput = Map("name" -> "Matt Ford", "email" -> "matt@email.com", "password" -> "pw12345678")
     println(FormValidation.validateForm(formInput))
 
